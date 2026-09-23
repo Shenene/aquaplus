@@ -1,0 +1,25 @@
+# Windows folder customisation
+desktop.ini
+Thumbs.db
+
+# Dependencies
+node_modules/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+build/
+
+# Test coverage
+coverage/
+
+# Logs
+*.log
+
+# Editor and operating system files
+.DS_Store
+.vscode/
