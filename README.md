@@ -8,13 +8,13 @@ Developed as a Software Engineering Capstone Project for the University of Cante
 
 ## Getting Started
 
-**Backend requirements:** Node.js and npm.
+**Requirements:** Node.js, npm and MySQL.
 
-To run the backend locally:
-
-1. Open a terminal in the `backend` folder.
-2. Run `npm install`.
-3. Create `.env` using `.env.example` as a reference.
-4. Run `npm run dev`.
+1. Create a MySQL database named `aquaplus_db`.
+2. Open a terminal in the `backend` folder.
+3. Run `npm install`.
+4. Create `.env` using `.env.example` as a reference and enter your MySQL connection details.
+5. Run `npm run dev` to start the backend and create the database tables.
+6. In another terminal inside `backend`, run `npm run seed` to populate the three marine exhibits.
 
 **Health check:** `http://localhost:3000/api/health`
