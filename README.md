@@ -18,3 +18,17 @@ Developed as a Software Engineering Capstone Project for the University of Cante
 6. In another terminal inside `backend`, run `npm run seed` to populate the three marine exhibits.
 
 **Health check:** `http://localhost:3000/api/health`
+
+## Public API
+
+AQUA+ provides public read-only API endpoints for retrieving marine exhibit information.
+
+| Method | Endpoint              | Description                            |
+| ------ | --------------------- | -------------------------------------- |
+| GET    | `/api/health`         | Check that the backend is running      |
+| GET    | `/api/exhibits`       | Retrieve all marine exhibits           |
+| GET    | `/api/exhibits/:slug` | Retrieve an exhibit by its unique slug |
+
+**Example:** `http://localhost:3000/api/exhibits/green-sea-turtle`
+
+An exhibit that does not exist returns HTTP `404` with the message `Exhibit not found`.
