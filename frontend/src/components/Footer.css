@@ -12,7 +12,10 @@
   padding: 1.5rem;
 
   color: var(--color-neutral-white);
-  background-color: color-mix(in srgb, var(--color-deep-sea) 85%, transparent);
+
+  background: rgba(15, 30, 58, 0.55);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
 }
 
 .footer-copyright {
