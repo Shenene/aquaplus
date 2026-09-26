@@ -31,6 +31,10 @@
   --color-page-bg: var(--color-deep-sea);
   --color-focus: var(--color-aqua);
 
+  /* Card colours */
+  --color-card-bg: rgba(15, 30, 58, 0.68);
+  --color-card-border: rgba(255, 255, 255, 0.2);
+
   /* -------------------------------------- */
   /* Glass-button colours */
 
@@ -96,11 +100,51 @@ body {
   flex-direction: column;
 }
 
+.page-container {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-page-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .app-content {
   flex: 1;
 
   display: flex;
   flex-direction: column;
+}
+
+/* -------------------------------------- */
+/* Page backgrounds */
+/* -------------------------------------- */
+
+.page-home {
+  background-image: url("/images/backgrounds/home-desktop.webp");
+}
+
+.page-about {
+  background-image: url("/images/backgrounds/about-desktop.webp");
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Mobile Page Backgrounds⁡⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 767px) {
+  .page-home {
+    background-image: url("/images/backgrounds/home-mobile.webp");
+    background-position: center top;
+  }
+
+  .page-about {
+    background-image: url("/images/backgrounds/about-mobile.webp");
+    background-position: center top;
+  }
 }
 
 /* -------------------------------------- */

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
@@ -8,18 +8,33 @@ import Explore from "./pages/Explore.jsx";
 import About from "./pages/About.jsx";
 
 function App() {
+  const location = useLocation();
+
+  let pageClass = "";
+
+  if (location.pathname === "/") {
+    pageClass = "page-home";
+  } else if (location.pathname === "/about") {
+    pageClass = "page-about";
+  } else if (location.pathname.startsWith("/explore")) {
+    pageClass = "page-explore";
+  }
+
   return (
     <div className="app-container">
       <Header />
-      <div className="app-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </div>
 
-      <Footer />
+      <div className={`page-container ${pageClass}`}>
+        <div className="app-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+
+        <Footer />
+      </div>
     </div>
   );
 }
