@@ -32,3 +32,21 @@ AQUA+ provides public read-only API endpoints for retrieving marine exhibit info
 **Example:** `http://localhost:3000/api/exhibits/green-sea-turtle`
 
 An exhibit that does not exist returns HTTP `404` with the message `Exhibit not found`.
+
+## Frontend
+
+The AQUA+ frontend is built with React and Vite.
+
+### Run locally
+
+From the project root, open a terminal and run each command:
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
+Open the local address displayed in the terminal, usually http://localhost:5173/.
+
+Run the backend in a separate terminal using the instructions above.

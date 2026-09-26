@@ -1,0 +1,77 @@
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢AQUA+ Footer - Desktop⁡ */
+/* -------------------------------------- */
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  width: 100%;
+  padding: 1.5rem;
+
+  color: var(--color-neutral-white);
+  background-color: color-mix(in srgb, var(--color-deep-sea) 85%, transparent);
+}
+
+.footer-copyright {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+
+.footer-nav a,
+.footer-nav span {
+  color: var(--color-neutral-white);
+  font-size: 1rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.footer-nav a:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 0.25rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣AQUA+ Footer - Mobile⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 767px) {
+  .site-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+  }
+
+  .footer-nav {
+    order: -1;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.875rem;
+  }
+
+  .footer-nav a,
+  .footer-nav span {
+    font-size: 0.875rem;
+  }
+}

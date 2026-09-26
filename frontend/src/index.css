@@ -1,0 +1,150 @@
+/* -------------------------------------- */
+/* ⁡⁣⁣⁢AQUA+ Design System⁡ */
+/* -------------------------------------- */
+
+:root {
+  /* Typography */
+  --font-heading: "Orbitron", sans-serif;
+  --font-button: "Exo 2", sans-serif;
+  --font-body: "Roboto", sans-serif;
+
+  /* -------------------------------------- */
+  /* AQUA+ brand colours */
+
+  --color-aqua: #00e1e8;
+  --color-deep-sea: #0f1e3a;
+  --color-purple-neon: #a020f0;
+  --color-soft-pink: #e688ff;
+
+  /* Neutral colours */
+  --color-neutral-white: #f5f5f5;
+  --color-white: #ffffff;
+  --color-gray: #6e6868;
+  --color-gray-light: #f7f9fc;
+  --color-gray-medium: #667085;
+
+  /* Feedback colours */
+  --color-red: #b00020;
+
+  /* Default colours */
+  --color-text: var(--color-neutral-white);
+  --color-page-bg: var(--color-deep-sea);
+  --color-focus: var(--color-aqua);
+
+  /* -------------------------------------- */
+  /* Glass-button colours */
+
+  --color-glass-bg: rgba(255, 255, 255, 0.12);
+  --color-glass-bg-hover: rgba(255, 255, 255, 0.22);
+  --color-glass-border: rgba(255, 255, 255, 0.45);
+
+  /* -------------------------------------- */
+  /* Shared border radius */
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-pill: 9999px;
+
+  /* Shared layout values */
+  --header-height: 4rem;
+
+  /* ----------------------------------------------------------------------- */
+
+  /* -------------------------------------- */
+  /* ⁡⁢⁢⁢Global defaults and text rendering⁡ */
+
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-page-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁢Global Reset⁡ */
+/* -------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁢Shared Application Layout⁡ */
+/* -------------------------------------- */
+
+.app-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁢Global Typography⁡ */
+/* -------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--font-heading);
+}
+
+button {
+  font-family: var(--font-button);
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁡⁢⁢⁣Accessibility⁡⁡ */
+/* -------------------------------------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
