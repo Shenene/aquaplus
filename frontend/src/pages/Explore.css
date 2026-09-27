@@ -1,0 +1,413 @@
+/* -------------------------------------- */
+/* ⁡⁣⁢⁡⁣⁢⁢A⁡⁣⁢⁢QUA+ Explore page⁡⁡ */
+/* -------------------------------------- */
+
+.explore-page {
+  flex: 1;
+  color: var(--color-text);
+}
+
+.explore-content {
+  width: calc(100% - 3rem);
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Page heading⁡ */
+/* -------------------------------------- */
+
+.explore-intro {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.explore-intro h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢360° museum experience⁡ */
+/* -------------------------------------- */
+
+.explore-360 {
+  display: grid;
+  grid-template-columns: 14rem 28rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.explore-360-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14rem;
+  height: 14rem;
+}
+
+.explore-rings {
+  position: absolute;
+  width: 14rem;
+  height: 14rem;
+  object-fit: contain;
+}
+
+.explore-orbits {
+  position: absolute;
+  width: 14rem;
+  height: 14rem;
+  overflow: visible;
+}
+
+.orbit-line {
+  fill: none;
+  stroke: var(--color-aqua);
+  stroke-width: 2;
+  stroke-linecap: round;
+
+  stroke-dasharray: 14 86;
+  stroke-dashoffset: 0;
+
+  filter: drop-shadow(0 0 0.35rem var(--color-aqua));
+
+  animation: move-orbit 4s linear infinite;
+}
+
+.orbit-line-2 {
+  animation-delay: -1.3s;
+}
+
+.orbit-line-3 {
+  animation-delay: -2.6s;
+}
+
+@keyframes move-orbit {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+.explore-head {
+  position: relative;
+  z-index: 1;
+  width: 6rem;
+  height: auto;
+}
+
+.explore-360-text h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.explore-360-text p {
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢360° button⁡ */
+/* -------------------------------------- */
+
+.explore-360-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+
+  min-height: 4rem;
+  padding: 1rem 2rem;
+
+  color: var(--color-text);
+  background: var(--color-glass-bg);
+
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-button);
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+
+.explore-360-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.explore-360-button:hover {
+  background: var(--color-glass-bg-hover);
+}
+
+.explore-360-button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 0.25rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Browse exhibits⁡ */
+/* -------------------------------------- */
+
+.explore-exhibits {
+  padding: 2.5rem;
+
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+
+.explore-exhibits > h2 {
+  margin-bottom: 2rem;
+
+  text-align: left;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+}
+
+.exhibit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Exhibit cards⁡ */
+/* -------------------------------------- */
+
+.exhibit-card {
+  overflow: hidden;
+
+  background: var(--color-glass-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+}
+
+.exhibit-card-link {
+  display: flex;
+  height: 100%;
+
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.exhibit-card-image {
+  display: block;
+
+  width: 50%;
+  height: 10rem;
+  padding: 0.5rem;
+  object-fit: contain;
+}
+
+/* ⁡⁢⁣Individual brand-icon sizing⁡ */
+
+.exhibit-card-image--green-sea-turtle {
+  transform: scale(1.15);
+}
+
+.exhibit-card-image--seahorse {
+  transform: scale(0.85);
+}
+
+.exhibit-card-content {
+  padding: 1rem;
+  text-align: left;
+}
+
+.exhibit-card-content h3 {
+  margin-bottom: 0.5rem;
+
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.exhibit-card-content p {
+  margin: 0;
+
+  color: var(--color-aqua);
+
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.exhibit-card-link:hover {
+  background: var(--color-glass-bg-hover);
+}
+
+.exhibit-card-link:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: -0.25rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Tablet and smaller screens⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 1024px) {
+  .explore-content {
+    width: calc(100% - 2.5rem);
+  }
+
+  .explore-360 {
+    grid-template-columns: 12rem 22rem;
+    gap: 1.5rem;
+  }
+
+  .explore-360-visual {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .explore-rings {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .explore-head {
+    width: 5rem;
+  }
+
+  .explore-exhibits {
+    width: 100%;
+    max-width: 37.5rem;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .exhibit-grid {
+    gap: 1rem;
+  }
+
+  .exhibit-card-link {
+    flex-direction: column;
+  }
+
+  .exhibit-card-image {
+    width: 70%;
+    height: 8rem;
+    margin: 0 auto;
+  }
+
+  /* ⁡⁢⁣Individual brand-icon sizing⁡ */
+  .exhibit-card-image--green-sea-turtle {
+    transform: scale(1);
+  }
+
+  .exhibit-card-image--seahorse {
+    transform: scale(0.9);
+  }
+
+  .exhibit-card-content {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .exhibit-card-content h3 {
+    font-size: 1.125rem;
+  }
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Mobile⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 767px) {
+  .explore-content {
+    width: calc(100% - 2.5rem);
+    padding: 6rem 0 4rem;
+  }
+
+  .explore-intro {
+    margin-bottom: 3rem;
+  }
+
+  .explore-intro h1 {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+  }
+
+  .explore-360 {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  .explore-360-text {
+    min-width: 0;
+    margin-top: -2.8rem;
+  }
+
+  .explore-360-visual {
+    width: 12rem;
+    height: 12rem;
+    margin: 0 auto;
+  }
+
+  .explore-rings {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .explore-head {
+    width: 5rem;
+  }
+
+  .explore-360-text h2 {
+    white-space: normal;
+  }
+
+  .explore-360-text p {
+    margin-bottom: 1rem;
+    white-space: normal;
+  }
+
+  .explore-360-button {
+    padding: 1rem 1.5rem;
+  }
+
+  .explore-exhibits {
+    padding: 2rem 1.5rem;
+  }
+
+  .explore-exhibits > h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .exhibit-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .exhibit-card-image {
+    width: 50%;
+    height: 10rem;
+  }
+
+  .exhibit-card-content {
+    padding: 0.5rem 1.25rem 1.5rem;
+  }
+
+  .exhibit-card-image {
+    margin-bottom: -0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .explore-rings {
+    animation: none;
+  }
+}
