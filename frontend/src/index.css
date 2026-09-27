@@ -120,7 +120,7 @@ body {
 }
 
 /* -------------------------------------- */
-/* Page backgrounds */
+/* Desktop Page backgrounds */
 /* -------------------------------------- */
 
 .page-home {
@@ -129,6 +129,10 @@ body {
 
 .page-about {
   background-image: url("/images/backgrounds/about-desktop.webp");
+}
+
+.page-explore {
+  background-image: url("/images/backgrounds/explore-desktop.webp");
 }
 
 /* -------------------------------------- */
@@ -143,6 +147,11 @@ body {
 
   .page-about {
     background-image: url("/images/backgrounds/about-mobile.webp");
+    background-position: center top;
+  }
+
+  .page-explore {
+    background-image: url("/images/backgrounds/explore-mobile.webp");
     background-position: center top;
   }
 }
