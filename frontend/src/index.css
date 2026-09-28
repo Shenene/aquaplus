@@ -46,8 +46,8 @@
   /* Shared border radius */
 
   --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 1rem; /* 16px */
   --radius-pill: 9999px;
 
   /* Shared layout values */
@@ -81,7 +81,6 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
 }
 
 #root {
@@ -135,6 +134,10 @@ body {
   background-image: url("/images/backgrounds/explore-desktop.webp");
 }
 
+.page-exhibit {
+  background-image: url("/images/backgrounds/exhibit-desktop.webp");
+}
+
 /* -------------------------------------- */
 /* ⁡⁢⁢⁣Mobile Page Backgrounds⁡⁡ */
 /* -------------------------------------- */
@@ -152,6 +155,11 @@ body {
 
   .page-explore {
     background-image: url("/images/backgrounds/explore-mobile.webp");
+    background-position: center top;
+  }
+
+  .page-exhibit {
+    background-image: url("/images/backgrounds/exhibit-mobile.webp");
     background-position: center top;
   }
 }

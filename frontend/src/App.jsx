@@ -5,6 +5,7 @@ import Footer from "./components/Footer.jsx";
 
 import Home from "./pages/Home.jsx";
 import Explore from "./pages/Explore.jsx";
+import ExhibitDetails from "./pages/ExhibitDetails.jsx";
 import About from "./pages/About.jsx";
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
     pageClass = "page-home";
   } else if (location.pathname === "/about") {
     pageClass = "page-about";
+  } else if (location.pathname.startsWith("/explore/")) {
+    pageClass = "page-exhibit";
   } else if (location.pathname.startsWith("/explore")) {
     pageClass = "page-explore";
   }
@@ -29,6 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
+            <Route path="/explore/:slug" element={<ExhibitDetails />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </div>

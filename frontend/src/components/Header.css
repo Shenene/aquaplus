@@ -158,7 +158,7 @@
     padding: 1rem;
 
     background-color: var(--color-deep-sea);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
   }
 
   .mobile-nav:not([hidden]) {
