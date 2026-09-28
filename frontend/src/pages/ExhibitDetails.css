@@ -1,0 +1,594 @@
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢AQUA+ Exhibit Details page⁡ */
+/* -------------------------------------- */
+
+.exhibit-details-page {
+  position: relative;
+
+  flex: 1;
+
+  width: calc(100% - 4rem);
+  max-width: 87.5rem;
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+
+  color: var(--color-text);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Back to Explore⁡ */
+/* -------------------------------------- */
+
+.exhibit-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+
+  color: var(--color-text);
+  background: var(--color-glass-bg);
+
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-pill);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-decoration: none;
+
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+
+.exhibit-back-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.exhibit-back-link:hover {
+  background: var(--color-glass-bg-hover);
+}
+
+.exhibit-back-link:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 0.25rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Main desktop layout⁡ */
+/* -------------------------------------- */
+
+.exhibit-details-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(32rem, 0.95fr);
+
+  align-items: start;
+
+  gap: 2rem;
+
+  margin-top: 2.5rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Exhibit image⁡ */
+/* -------------------------------------- */
+
+.exhibit-details-image-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  min-height: 38rem;
+}
+
+.exhibit-details-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.exhibit-details-image {
+  display: block;
+
+  width: 100%;
+  max-width: 43rem;
+  height: auto;
+
+  object-fit: contain;
+}
+
+.exhibit-details-image--green-sea-turtle {
+  transform: scale(1.08);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁡⁢⁢⁣Desktop turtle animation⁡⁡ */
+/* -------------------------------------- */
+
+@media (min-width: 1025px) {
+  .exhibit-details-image--green-sea-turtle {
+    transform-origin: center;
+    animation: turtle-swim-forward 4.5s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes turtle-swim-forward {
+  from {
+    transform: translate3d(-0.2rem, 0.15rem, 0) scale(1.08);
+  }
+
+  to {
+    transform: translate3d(0.35rem, -0.35rem, 0) scale(1.12);
+  }
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Main information card⁡ */
+/* -------------------------------------- */
+
+.exhibit-details-card {
+  padding: 2.5rem;
+
+  background: rgba(15, 30, 58, 0.84);
+
+  border: 1px solid var(--color-card-border);
+  border-radius: 1.5rem;
+
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Exhibit heading and description⁡ */
+/* -------------------------------------- */
+
+.exhibit-details-intro h1 {
+  margin-bottom: 0.75rem;
+
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.exhibit-details-category {
+  margin: 0 0 1.25rem;
+
+  color: var(--color-aqua);
+
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+}
+
+.exhibit-details-description {
+  margin: 0;
+
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Divider⁡ */
+/* -------------------------------------- */
+
+.exhibit-details-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 1.5rem 0;
+
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Exhibit fact cards⁡ */
+/* -------------------------------------- */
+
+.exhibit-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.exhibit-fact-card {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+  min-height: 6.25rem;
+
+  gap: 1rem;
+
+  padding: 1rem;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+
+.exhibit-fact-icon {
+  flex: 0 0 auto;
+
+  width: 3rem;
+  height: 3rem;
+
+  object-fit: contain;
+}
+
+.exhibit-fact-card h2 {
+  margin-bottom: 0.35rem;
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.exhibit-fact-card p {
+  margin: 0;
+
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Save to My Collection⁡ */
+/* -------------------------------------- */
+
+.exhibit-save-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 3.5rem;
+
+  gap: 0.75rem;
+
+  padding: 0.75rem 1.5rem;
+
+  color: var(--color-deep-sea);
+  background: var(--color-aqua);
+
+  border: none;
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-button);
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.exhibit-save-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.exhibit-save-button:hover {
+  filter: brightness(0.95);
+}
+
+.exhibit-save-button:focus-visible {
+  outline: 3px solid var(--color-neutral-white);
+  outline-offset: 0.25rem;
+}
+
+.exhibit-save-note {
+  margin: 0.75rem 0 0;
+
+  color: var(--color-neutral-white);
+
+  font-size: 0.875rem;
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Browse More Exhibits⁡ */
+/* -------------------------------------- */
+
+.exhibit-browse-area {
+  display: flex;
+  justify-content: center;
+}
+
+.exhibit-browse-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 4rem;
+
+  gap: 1rem;
+
+  padding: 1rem 1.5rem;
+
+  color: var(--color-text);
+  background: var(--color-glass-bg);
+
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-button);
+  font-size: 1rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+
+.exhibit-browse-link svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.exhibit-browse-link:hover {
+  background: var(--color-glass-bg-hover);
+}
+
+.exhibit-browse-link:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 0.25rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Loading and error messages⁡ */
+/* -------------------------------------- */
+
+.exhibit-details-message {
+  margin: 4rem 0;
+
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Tablet⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 1024px) {
+  .exhibit-details-page {
+    width: calc(100% - 2.5rem);
+  }
+
+  .exhibit-details-layout {
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(0, 1fr);
+
+    gap: 1.5rem;
+  }
+
+  .exhibit-details-image-area {
+    min-height: 34rem;
+  }
+
+  .exhibit-details-card {
+    padding: 2rem;
+  }
+
+  .exhibit-details-image {
+    max-width: 36rem;
+  }
+
+  .exhibit-details-intro h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+  }
+
+  .exhibit-fact-card {
+    gap: 0.75rem;
+    padding: 0.875rem;
+  }
+
+  .exhibit-fact-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Narrow tablet⁡ */
+/* -------------------------------------- */
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .exhibit-facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .exhibit-fact-card {
+    min-height: 5.5rem;
+  }
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Mobile⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 767px) {
+  .exhibit-details-page {
+    width: calc(100% - 2rem);
+    padding: 0 0 4rem;
+  }
+
+  .exhibit-details-layout {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+
+    margin-top: 0;
+  }
+
+  /* -------------------------------------- */
+  /* Mobile turtle area */
+  /* -------------------------------------- */
+
+  .exhibit-details-image-area {
+    width: 100%;
+    min-width: 0;
+    min-height: 21rem;
+
+    margin: 0;
+
+    overflow: hidden;
+  }
+
+  .exhibit-details-picture {
+    width: 100%;
+    height: 21rem;
+  }
+
+  .exhibit-details-image {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+
+    object-fit: contain;
+  }
+
+  .exhibit-details-image--green-sea-turtle {
+    animation: none;
+    transform: translateY(0.2rem);
+  }
+
+  /* -------------------------------------- */
+  /* Mobile back button */
+  /* -------------------------------------- */
+
+  .exhibit-back-link {
+    position: absolute;
+    z-index: 2;
+
+    top: 17rem;
+    left: 0;
+
+    min-height: 3rem;
+  }
+
+  /* -------------------------------------- */
+  /* Remove desktop outer card on mobile */
+  /* -------------------------------------- */
+
+  .exhibit-details-card {
+    padding: 2.5rem 0 0;
+
+    background: transparent;
+
+    border: none;
+    border-radius: 0;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* -------------------------------------- */
+  /* Mobile typography */
+  /* -------------------------------------- */
+
+  .exhibit-details-intro h1 {
+    margin-bottom: 1.25rem;
+
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+    line-height: 1.1;
+  }
+
+  .exhibit-details-category {
+    margin-bottom: 1.75rem;
+
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  .exhibit-details-description {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .exhibit-details-divider {
+    margin: 1.75rem 0;
+  }
+
+  /* -------------------------------------- */
+  /* Mobile fact cards */
+  /* -------------------------------------- */
+
+  .exhibit-facts-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+
+    margin-bottom: 2rem;
+  }
+
+  .exhibit-fact-card {
+    min-height: 7rem;
+
+    gap: 1rem;
+
+    padding: 1rem 1.25rem;
+  }
+
+  .exhibit-fact-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .exhibit-fact-card h2 {
+    font-size: 1rem;
+  }
+
+  .exhibit-fact-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* -------------------------------------- */
+  /* Mobile action buttons */
+  /* -------------------------------------- */
+
+  .exhibit-save-button {
+    min-height: 4rem;
+
+    font-size: 1.05rem;
+  }
+
+  .exhibit-save-note {
+    margin-top: 1rem;
+
+    font-size: 0.9rem;
+  }
+
+  .exhibit-browse-link {
+    min-height: 4.5rem;
+
+    padding: 1rem 1.5rem;
+
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1025px) and (prefers-reduced-motion: reduce) {
+  .exhibit-details-image--green-sea-turtle {
+    animation: none;
+    transform: scale(1.08);
+  }
+}

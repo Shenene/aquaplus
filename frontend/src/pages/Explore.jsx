@@ -78,7 +78,7 @@ function Explore() {
             <div className="exhibit-grid">
               {exhibits.map((exhibit) => (
                 <article className="exhibit-card" key={exhibit.id}>
-                  <Link to={`/exhibits/${exhibit.slug}`} className="exhibit-card-link">
+                  <Link to={`/explore/${exhibit.slug}`} className="exhibit-card-link">
                     <img src={exhibit.imageUrl} alt={exhibit.name} className={`exhibit-card-image exhibit-card-image--${exhibit.slug}`} />
 
                     <div className="exhibit-card-content">
