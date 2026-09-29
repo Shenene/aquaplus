@@ -1,0 +1,810 @@
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢AQUA+ My Collection page⁡ */
+/* -------------------------------------- */
+
+.my-collection-page {
+  flex: 1;
+
+  width: 100%;
+
+  color: var(--color-text);
+}
+
+.my-collection-container {
+  width: calc(100% - 3rem);
+  max-width: 77.5rem;
+  margin: 0 auto;
+  padding: 5rem 0 8rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Page heading⁡ */
+/* -------------------------------------- */
+
+.my-collection-heading-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 2rem;
+}
+
+.my-collection-heading {
+  min-width: 0;
+}
+
+.my-collection-heading h1 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.my-collection-heading p {
+  margin: 1.25rem 0 0;
+
+  color: var(--color-neutral-white);
+
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Saved exhibits count⁡ */
+/* -------------------------------------- */
+
+.my-collection-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  min-width: 15rem;
+  min-height: 4.5rem;
+
+  gap: 1rem;
+
+  padding: 1rem 1.5rem;
+
+  color: var(--color-text);
+  background: var(--color-card-bg);
+
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem);
+}
+
+.my-collection-count svg {
+  flex-shrink: 0;
+
+  width: 1.9rem;
+  height: 1.9rem;
+
+  color: var(--color-aqua);
+
+  stroke-width: 2;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Main collection panel⁡ */
+/* -------------------------------------- */
+
+.saved-exhibits-panel {
+  margin-top: 2.5rem;
+
+  padding: 1.75rem;
+
+  background: var(--color-card-bg);
+
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+
+  backdrop-filter: blur(0.625rem);
+  -webkit-backdrop-filter: blur(0.625rem);
+}
+
+.saved-exhibits-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.15rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Saved exhibit card⁡ */
+/* -------------------------------------- */
+
+.saved-exhibit-card {
+  display: grid;
+
+  grid-template-columns:
+    minmax(12rem, 15rem)
+    minmax(0, 1fr)
+    1px
+    minmax(12rem, 14rem);
+
+  align-items: center;
+
+  min-height: 12rem;
+
+  gap: 1.75rem;
+
+  padding: 1.4rem 1.6rem;
+
+  background: var(--color-glass-bg);
+
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Exhibit image⁡ */
+/* -------------------------------------- */
+
+.saved-exhibit-image-area {
+  width: 100%;
+  min-height: 7.5rem;
+}
+
+.saved-exhibit-image {
+  width: 100%;
+  max-width: 9rem;
+  height: 7.5rem;
+
+  object-fit: contain;
+}
+
+/* Individual brand-icon sizing */
+
+.saved-exhibit-image--green-sea-turtle {
+  max-width: 10rem;
+}
+
+.saved-exhibit-image--seahorse {
+  max-width: 5.5rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Exhibit information⁡ */
+/* -------------------------------------- */
+
+.saved-exhibit-content {
+  min-width: 0;
+}
+
+.saved-exhibit-content h2 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.saved-exhibit-category {
+  margin: 0.6rem 0 0;
+
+  color: var(--color-aqua);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁡⁣⁢⁢Exhibit summary⁡⁡ */
+/* -------------------------------------- */
+
+.saved-exhibit-summary {
+  max-width: 31rem;
+
+  margin: 1.15rem 0 0;
+
+  color: var(--color-neutral-white);
+
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.45;
+
+  opacity: 0.78;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Personal note⁡ */
+/* -------------------------------------- */
+
+.saved-exhibit-note {
+  margin-top: 1rem;
+
+  padding: 0.75rem 1rem;
+
+  background: var(--color-card-bg);
+
+  border-left: 0.125rem solid var(--color-aqua);
+  border-radius: var(--radius-md);
+}
+
+.saved-exhibit-note span {
+  display: block;
+
+  margin-bottom: 0.35rem;
+
+  color: var(--color-aqua);
+
+  font-family: var(--font-button);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.saved-exhibit-note p {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Divider⁡ */
+/* -------------------------------------- */
+
+.saved-exhibit-divider {
+  align-self: stretch;
+
+  width: 1px;
+
+  margin: 0.25rem 0;
+
+  background: var(--color-card-border);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Exhibit actions⁡ */
+/* -------------------------------------- */
+
+.saved-exhibit-actions {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.7rem;
+}
+
+.saved-exhibit-action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  min-height: 3rem;
+
+  gap: 0.8rem;
+
+  padding: 0.7rem 1rem;
+
+  color: var(--color-text);
+  background: var(--color-glass-bg);
+
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-button);
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.saved-exhibit-action svg {
+  flex-shrink: 0;
+
+  width: 1.6rem;
+  height: 1.6rem;
+
+  stroke-width: 1.8;
+}
+
+.saved-exhibit-action:hover {
+  background: var(--color-glass-bg-hover);
+}
+
+.saved-exhibit-action:focus-visible {
+  outline: 0.125rem solid var(--color-focus);
+  outline-offset: 0.2rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Empty collection state⁡ */
+/* -------------------------------------- */
+
+.collection-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 22rem;
+
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+
+  text-align: center;
+}
+
+.collection-empty-state h2 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.collection-empty-state p {
+  max-width: 28rem;
+
+  margin: 0.75rem 0 1.75rem;
+
+  color: var(--color-neutral-white);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.collection-empty-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 14rem;
+  min-height: 3.5rem;
+
+  gap: 0.75rem;
+
+  padding: 0.75rem 1.5rem;
+
+  color: var(--color-text);
+  background: var(--color-glass-bg);
+
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-button);
+  font-size: 1rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: background 0.2s ease;
+}
+
+.collection-empty-action svg {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  flex-shrink: 0;
+}
+
+.collection-empty-action:hover {
+  background: var(--color-glass-bg-hover);
+}
+
+.collection-empty-action:focus-visible {
+  outline: 0.125rem solid var(--color-focus);
+  outline-offset: 0.25rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Tablet⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 1024px) {
+  .my-collection-container {
+    width: calc(100% - 2.5rem);
+  }
+
+  .saved-exhibit-card {
+    grid-template-columns:
+      minmax(9rem, 11rem)
+      minmax(0, 1fr)
+      1px
+      minmax(10.5rem, 12rem);
+
+    gap: 1.25rem;
+  }
+
+  .saved-exhibit-image {
+    max-width: 10rem;
+  }
+
+  .saved-exhibit-image--green-sea-turtle {
+    max-width: 11rem;
+  }
+
+  .saved-exhibit-image--seahorse {
+    max-width: 6.5rem;
+  }
+
+  .saved-exhibit-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .saved-exhibit-summary {
+    font-size: 0.9rem;
+  }
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Narrow tablet⁡ */
+/* -------------------------------------- */
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .my-collection-heading-row {
+    align-items: flex-start;
+  }
+
+  .saved-exhibits-panel {
+    padding: 1.25rem;
+  }
+
+  .saved-exhibit-card {
+    grid-template-columns:
+      minmax(7.5rem, 9rem)
+      minmax(0, 1fr);
+
+    align-items: start;
+  }
+
+  .saved-exhibit-image-area {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .saved-exhibit-content {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .saved-exhibit-divider {
+    display: none;
+  }
+
+  .saved-exhibit-actions {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    flex-direction: row;
+  }
+
+  .saved-exhibit-action {
+    justify-content: center;
+  }
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Mobile⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 767px) {
+  .my-collection-container {
+    width: calc(100% - 2.5rem);
+
+    padding: 6rem 0 4rem;
+  }
+
+  /* -------------------------------------- */
+  /* Mobile heading */
+  /* -------------------------------------- */
+
+  .my-collection-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 1.75rem;
+  }
+
+  .my-collection-heading h1 {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  .my-collection-heading p {
+    margin-top: 0.75rem;
+
+    font-size: 1rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+
+  /* -------------------------------------- */
+  /* Mobile saved count */
+  /* -------------------------------------- */
+
+  .my-collection-count {
+    justify-content: flex-start;
+
+    width: 100%;
+    max-width: 19rem;
+    min-height: 4.75rem;
+
+    padding: 1rem 1.5rem;
+
+    font-size: 1rem;
+  }
+
+  /* -------------------------------------- */
+  /* Mobile empty collection state */
+  /* -------------------------------------- */
+
+  .collection-empty-state {
+    min-height: 18rem;
+
+    max-width: none;
+    width: 100%;
+
+    padding: 2rem 1.25rem;
+
+    background: var(--color-card-bg);
+
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .collection-empty-state h2 {
+    font-size: 1.5rem;
+  }
+
+  .collection-empty-state p {
+    max-width: 20rem;
+
+    font-size: 1rem;
+  }
+
+  .collection-empty-action {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* -------------------------------------- */
+  /* Remove desktop outer panel */
+  /* -------------------------------------- */
+
+  .saved-exhibits-panel {
+    margin-top: 2.25rem;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+    border-radius: 0;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .saved-exhibits-list {
+    gap: 2rem;
+  }
+
+  /* -------------------------------------- */
+  /* Mobile exhibit card */
+  /* -------------------------------------- */
+
+  .saved-exhibit-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    min-height: 0;
+
+    gap: 1.25rem;
+
+    padding: 1.5rem;
+
+    background: var(--color-glass-bg);
+
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+  }
+
+  /* -------------------------------------- */
+  /* Mobile exhibit image */
+  /* -------------------------------------- */
+
+  .saved-exhibit-image-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 7.5rem;
+  }
+
+  .saved-exhibit-image {
+    width: 100%;
+    max-width: 9rem;
+    height: 7.5rem;
+
+    object-fit: contain;
+  }
+
+  .saved-exhibit-image--green-sea-turtle {
+    max-width: 10rem;
+  }
+
+  .saved-exhibit-image--seahorse {
+    max-width: 5.5rem;
+  }
+
+  /* -------------------------------------- */
+  /* Mobile exhibit content */
+  /* -------------------------------------- */
+
+  .saved-exhibit-content {
+    width: 100%;
+  }
+
+  .saved-exhibit-content h2 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+
+  .saved-exhibit-category {
+    margin-top: 0.6rem;
+
+    font-size: 1rem;
+  }
+
+  .saved-exhibit-summary {
+    display: -webkit-box;
+
+    margin-top: 0.85rem;
+
+    overflow: hidden;
+
+    font-size: 0.95rem;
+    line-height: 1.45;
+
+    -webkit-box-orient: vertical;
+
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+  }
+
+  /* -------------------------------------- */
+  /* Mobile personal note */
+  /* -------------------------------------- */
+
+  .saved-exhibit-note {
+    margin-top: 0.85rem;
+
+    padding: 0.75rem;
+  }
+
+  /* -------------------------------------- */
+  /* Mobile actions */
+  /* -------------------------------------- */
+
+  .saved-exhibit-divider {
+    display: none;
+  }
+
+  .saved-exhibit-actions {
+    width: 100%;
+
+    margin-top: 0.25rem;
+
+    gap: 0.75rem;
+  }
+
+  .saved-exhibit-action {
+    justify-content: center;
+
+    min-height: 3.4rem;
+
+    font-size: 1rem;
+  }
+
+  .saved-exhibit-action svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Large mobile⁡ */
+/* -------------------------------------- */
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .saved-exhibit-card {
+    display: grid;
+
+    grid-template-columns:
+      minmax(8rem, 10rem)
+      minmax(0, 1fr);
+
+    align-items: start;
+
+    gap: 1.5rem;
+
+    padding: 1.5rem;
+  }
+
+  .saved-exhibit-image-area {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: 100%;
+    min-height: 8rem;
+  }
+
+  .saved-exhibit-image {
+    max-width: 9rem;
+    height: 8rem;
+  }
+
+  .saved-exhibit-image--green-sea-turtle {
+    max-width: 10rem;
+  }
+
+  .saved-exhibit-image--seahorse {
+    max-width: 5.5rem;
+  }
+
+  .saved-exhibit-content {
+    grid-column: 2;
+    grid-row: 1;
+
+    width: 100%;
+  }
+
+  .saved-exhibit-actions {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    flex-direction: row;
+
+    width: 100%;
+
+    margin-top: 0.25rem;
+
+    gap: 0.75rem;
+  }
+
+  .saved-exhibit-action {
+    flex: 1;
+
+    justify-content: center;
+
+    min-height: 3.4rem;
+  }
+}
