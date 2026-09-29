@@ -138,6 +138,10 @@ body {
   background-image: url("/images/backgrounds/exhibit-desktop.webp");
 }
 
+.page-collection {
+  background-image: url("/images/backgrounds/collection-desktop.webp");
+}
+
 /* -------------------------------------- */
 /* ⁡⁢⁢⁣Mobile Page Backgrounds⁡⁡ */
 /* -------------------------------------- */
@@ -160,6 +164,11 @@ body {
 
   .page-exhibit {
     background-image: url("/images/backgrounds/exhibit-mobile.webp");
+    background-position: center top;
+  }
+
+  .page-collection {
+    background-image: url("/images/backgrounds/collection-mobile.webp");
     background-position: center top;
   }
 }
