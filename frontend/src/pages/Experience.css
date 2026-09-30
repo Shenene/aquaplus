@@ -1,0 +1,326 @@
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢AQUA+ 360° Experience page⁡ */
+/* -------------------------------------- */
+
+.experience-page {
+  width: 100%;
+  min-height: 100vh;
+
+  color: var(--color-text);
+  background: var(--color-deep-sea);
+}
+
+.experience-container {
+  width: calc(100% - 10rem);
+  max-width: 80rem;
+
+  margin: 0 auto;
+
+  padding: 2.5rem 0 5rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Exit Experience⁡ */
+/* -------------------------------------- */
+
+.experience-exit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 2.75rem;
+
+  gap: 0.5rem;
+
+  padding: 0.5rem 1rem;
+
+  color: var(--color-text);
+  background: var(--color-glass-bg);
+
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-pill);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+
+  text-decoration: none;
+
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+
+  transition: background 0.2s ease;
+}
+
+.experience-exit svg {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  flex-shrink: 0;
+
+  stroke-width: 1.75;
+}
+
+.experience-exit:hover {
+  background: var(--color-glass-bg-hover);
+}
+
+.experience-exit:focus-visible {
+  outline: 0.125rem solid var(--color-focus);
+  outline-offset: 0.25rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Main experience card⁡ */
+/* -------------------------------------- */
+
+.experience-card {
+  margin-top: 4.5rem;
+
+  padding: 3.5rem 3rem 3rem;
+
+  background: var(--color-glass-bg);
+
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Experience heading⁡ */
+/* -------------------------------------- */
+
+.experience-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+}
+
+.experience-heading-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+
+  object-fit: contain;
+}
+
+.experience-heading h1 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Kuula 360° viewer⁡ */
+/* -------------------------------------- */
+
+.experience-viewer-container {
+  position: relative;
+  width: 100%;
+  height: clamp(28rem, 36vw, 32rem);
+
+  margin-top: 2.5rem;
+
+  overflow: hidden;
+
+  background: var(--color-deep-sea);
+
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Viewer loading state⁡ */
+/* -------------------------------------- */
+
+.experience-loading {
+  position: absolute;
+  z-index: 2;
+
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1.25rem;
+
+  color: var(--color-neutral-white);
+  background: var(--color-deep-sea);
+
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+.experience-loading-spinner {
+  width: 3rem;
+  height: 3rem;
+}
+
+.experience-viewer {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Browse Exhibits Instead⁡ */
+/* -------------------------------------- */
+
+.experience-browse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 3.5rem;
+
+  margin-top: 4.5rem;
+
+  padding: 0.75rem 1.5rem;
+
+  color: var(--color-purple-neon);
+  background: var(--color-white);
+
+  border: 1px solid var(--color-purple-neon);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-button);
+  font-size: 1rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    filter 0.2s ease,
+    background 0.2s ease;
+}
+
+.experience-browse:hover {
+  filter: brightness(0.95);
+}
+
+.experience-browse:focus-visible {
+  outline: 0.125rem solid var(--color-focus);
+  outline-offset: 0.25rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Tablet⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 1024px) {
+  .experience-container {
+    width: calc(100% - 3rem);
+
+    padding: 2.5rem 0 4rem;
+  }
+
+  .experience-card {
+    margin-top: 3.5rem;
+
+    padding: 2.5rem;
+  }
+
+  .experience-viewer-container {
+    height: 30rem;
+  }
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Mobile⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 767px) {
+  .experience-container {
+    width: calc(100% - 2rem);
+
+    padding: 2rem 0 4rem;
+  }
+
+  .experience-exit {
+    min-height: 3rem;
+
+    padding: 0.625rem 1rem;
+  }
+
+  .experience-card {
+    margin-top: 2rem;
+
+    padding: 2rem 1.25rem;
+  }
+
+  .experience-heading {
+    justify-content: flex-start;
+
+    gap: 1rem;
+  }
+
+  .experience-heading-icon {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+
+  .experience-heading h1 {
+    font-size: 1.75rem;
+    line-height: 1.25;
+  }
+
+  .experience-viewer-container {
+    height: clamp(30rem, 150vw, 40rem);
+
+    margin-top: 2rem;
+  }
+
+  .experience-loading {
+    gap: 1rem;
+
+    font-size: 1rem;
+  }
+
+  .experience-loading-spinner {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .experience-browse {
+    margin-top: 2.5rem;
+
+    min-height: 3.5rem;
+
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Small mobile⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 360px) {
+  .experience-heading-icon {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .experience-heading h1 {
+    font-size: 1.5rem;
+  }
+
+  .experience-browse {
+    width: 100%;
+  }
+}

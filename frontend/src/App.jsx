@@ -8,9 +8,11 @@ import Explore from "./pages/Explore.jsx";
 import ExhibitDetails from "./pages/ExhibitDetails.jsx";
 import About from "./pages/About.jsx";
 import MyCollection from "./pages/MyCollection.jsx";
+import Experience from "./pages/Experience.jsx";
 
 function App() {
   const location = useLocation();
+  const isExperiencePage = location.pathname === "/experience";
 
   let pageClass = "";
 
@@ -28,7 +30,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header />
+      {!isExperiencePage && <Header />}
 
       <div className={`page-container ${pageClass}`}>
         <div className="app-content">
@@ -38,10 +40,11 @@ function App() {
             <Route path="/explore/:slug" element={<ExhibitDetails />} />
             <Route path="/about" element={<About />} />
             <Route path="/my-collection" element={<MyCollection />} />
+            <Route path="/experience" element={<Experience />} />
           </Routes>
         </div>
 
-        <Footer />
+        {!isExperiencePage && <Footer />}
       </div>
     </div>
   );

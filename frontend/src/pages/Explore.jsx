@@ -60,14 +60,14 @@ function Explore() {
 
             <p>Explore the futuristic AQUA+ museum in 360°.</p>
 
-            <button type="button" className="explore-360-button">
+            <Link to="/experience" className="explore-360-button">
               Enter 360° Experience
               <ArrowRight aria-hidden="true" />
-            </button>
+            </Link>
           </div>
         </section>
 
-        <section className="explore-exhibits" aria-labelledby="browse-exhibits-heading">
+        <section id="browse-exhibits" className="explore-exhibits" aria-labelledby="browse-exhibits-heading">
           <h2 id="browse-exhibits-heading">Browse Exhibits</h2>
 
           {isLoading && <p>Loading exhibits...</p>}
