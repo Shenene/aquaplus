@@ -1,0 +1,17 @@
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Reusable loading spinner⁡ */
+/* -------------------------------------- */
+
+.loading-spinner {
+  flex-shrink: 0;
+
+  color: var(--color-neutral-white);
+
+  animation: loading-spinner-rotate 1s linear infinite;
+}
+
+@keyframes loading-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
