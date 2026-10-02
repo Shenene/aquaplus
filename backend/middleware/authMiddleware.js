@@ -1,0 +1,10 @@
+// Require a logged-in user before continuing to a protected route
+export const requireAuth = (req, res, next) => {
+  if (!req.session?.userId) {
+    return res.status(401).json({
+      message: "Not authenticated.",
+    });
+  }
+
+  next();
+};
