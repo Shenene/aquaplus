@@ -125,8 +125,8 @@ function AuthModal({ isOpen, onClose, onLoginSuccess }) {
     try {
       await login(email, password, rememberMe);
 
-      handleClose();
       onLoginSuccess?.();
+      handleClose();
     } catch (error) {
       setLoginError(error.message);
     } finally {

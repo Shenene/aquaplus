@@ -3,18 +3,14 @@ import { Link, NavLink } from "react-router-dom";
 import { Search, Info, CircleUserRound, Menu, X } from "lucide-react";
 
 import { useAuth } from "../context/authContext.js";
-import AuthModal from "./AuthModal.jsx";
-import Toast from "./Toast.jsx";
+
 import "./Header.css";
 
-function Header() {
+function Header({ onLoginRequest }) {
   const { user, logout, isAuthLoading } = useAuth();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
-  const [authModalOpen, setAuthModalOpen] = useState(false);
-
-  const [toast, setToast] = useState(null);
 
   const mobileMenuRef = useRef(null);
   const mobileMenuButtonRef = useRef(null);
@@ -30,21 +26,11 @@ function Header() {
     setAccountMenuOpen(false);
   }
 
-  function openAuthModal() {
+  function handleLoginRequest() {
     closeMobileMenu();
     closeAccountMenu();
-    setAuthModalOpen(true);
-  }
 
-  function closeAuthModal() {
-    setAuthModalOpen(false);
-  }
-
-  function showLoginSuccessToast() {
-    setToast({
-      type: "success",
-      message: "Successfully logged in.",
-    });
+    onLoginRequest();
   }
 
   async function handleLogout() {
@@ -84,11 +70,13 @@ function Header() {
 
       if (mobileMenuOpen) {
         closeMobileMenu();
+
         mobileMenuButtonRef.current?.focus();
       }
 
       if (accountMenuOpen) {
         closeAccountMenu();
+
         accountButtonRef.current?.focus();
       }
     }
@@ -101,20 +89,6 @@ function Header() {
       document.removeEventListener("keydown", handleEscape);
     };
   }, [mobileMenuOpen, accountMenuOpen]);
-
-  useEffect(() => {
-    if (!toast) {
-      return;
-    }
-
-    const timer = window.setTimeout(() => {
-      setToast(null);
-    }, 4000);
-
-    return () => {
-      window.clearTimeout(timer);
-    };
-  }, [toast]);
 
   return (
     <header className="site-header">
@@ -173,7 +147,7 @@ function Header() {
             </div>
           </div>
         ) : (
-          <button className="site-login-button" type="button" onClick={openAuthModal}>
+          <button className="site-login-button" type="button" onClick={handleLoginRequest}>
             <CircleUserRound aria-hidden="true" />
             <span>Log in</span>
           </button>
@@ -212,14 +186,11 @@ function Header() {
             </button>
           </>
         ) : (
-          <button type="button" onClick={openAuthModal}>
+          <button type="button" onClick={handleLoginRequest}>
             Log in
           </button>
         )}
       </nav>
-      <AuthModal isOpen={authModalOpen} onClose={closeAuthModal} onLoginSuccess={showLoginSuccessToast} />
-
-      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </header>
   );
 }

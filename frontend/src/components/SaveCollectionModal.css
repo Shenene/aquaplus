@@ -1,0 +1,383 @@
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢AQUA+ Save to My Collection modal⁡ */
+/* -------------------------------------- */
+
+.collection-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  display: grid;
+  place-items: center;
+
+  padding: 1.5rem;
+
+  background: var(--color-overlay);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Modal⁡ */
+/* -------------------------------------- */
+
+.collection-modal {
+  position: relative;
+
+  width: min(32rem, 100%);
+  max-height: calc(100vh - 3rem);
+
+  padding: 2rem;
+
+  overflow-y: auto;
+
+  color: var(--color-deep-sea);
+  background: var(--color-white);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-modal);
+}
+
+.collection-modal-error {
+  margin: 0;
+
+  color: var(--color-red);
+
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Close button⁡ */
+/* -------------------------------------- */
+
+.collection-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.75rem;
+  height: 2.75rem;
+
+  padding: 0;
+
+  color: var(--color-deep-sea);
+  background: transparent;
+
+  border: 0;
+  border-radius: var(--radius-md);
+
+  cursor: pointer;
+}
+
+.collection-modal-close svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.collection-modal-close:hover {
+  color: var(--color-purple-neon);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Heading⁡ */
+/* -------------------------------------- */
+
+.collection-modal h2 {
+  margin: 0 3rem 0.75rem 0;
+
+  color: var(--color-deep-sea);
+
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Exhibit name⁡ */
+/* -------------------------------------- */
+
+.collection-modal-exhibit {
+  margin: 0 0 1.75rem;
+
+  color: var(--color-gray);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Form⁡ */
+/* -------------------------------------- */
+
+.collection-modal form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.75rem;
+}
+
+.collection-modal label {
+  color: var(--color-deep-sea);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.collection-modal label span {
+  color: var(--color-gray);
+  font-weight: 400;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Note textarea⁡ */
+/* -------------------------------------- */
+
+.collection-modal textarea {
+  width: 100%;
+  min-height: 7.5rem;
+
+  padding: 0.75rem 1rem;
+
+  resize: vertical;
+
+  color: var(--color-deep-sea);
+  background: var(--color-white);
+
+  border: 1px solid var(--color-gray-medium);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.collection-modal textarea::placeholder {
+  color: var(--color-gray-medium);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Character count⁡ */
+/* -------------------------------------- */
+
+.collection-note-count {
+  margin: -0.25rem 0 0;
+
+  color: var(--color-gray-medium);
+
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+
+  text-align: right;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Primary action⁡ */
+/* -------------------------------------- */
+
+.collection-modal-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 3rem;
+
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+
+  color: var(--color-neutral-white);
+  background: var(--color-deep-sea);
+
+  border: 0;
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-button);
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.collection-modal-primary:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.collection-modal-primary:disabled {
+  cursor: wait;
+  opacity: 0.45;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Save / Edit modal actions⁡ */
+/* -------------------------------------- */
+
+.collection-modal-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.75rem;
+
+  margin-top: 0.5rem;
+}
+
+.collection-modal-form-actions .collection-modal-primary,
+.collection-modal-form-actions .collection-modal-secondary {
+  width: 10rem;
+  margin-top: 0;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Focus⁡ */
+/* -------------------------------------- */
+
+.collection-modal-close:focus-visible,
+.collection-modal textarea:focus-visible,
+.collection-modal-primary:focus-visible {
+  outline: 0.125rem solid var(--color-focus);
+  outline-offset: 0.125rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Remove confirmation modal⁡ */
+/* -------------------------------------- */
+
+.collection-modal-message {
+  margin: 0 0 1.5rem;
+
+  color: var(--color-deep-sea);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.collection-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.75rem;
+
+  margin-top: 1.5rem;
+}
+
+.collection-modal-secondary,
+.collection-modal-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 10rem;
+  min-height: 3rem;
+
+  padding: 0.75rem 1rem;
+
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-button);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.collection-modal-secondary {
+  color: var(--color-deep-sea);
+  background: var(--color-white);
+
+  border: 1px solid var(--color-gray-medium);
+}
+
+.collection-modal-danger {
+  color: var(--color-neutral-white);
+  background: var(--color-red);
+
+  border: 1px solid var(--color-red);
+}
+
+/* Desktop hover states */
+
+.collection-modal-secondary:hover:not(:disabled) {
+  background: var(--color-gray-light);
+}
+
+.collection-modal-danger:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+/* Disabled states */
+
+.collection-modal-secondary:disabled,
+.collection-modal-danger:disabled {
+  cursor: wait;
+  opacity: 0.45;
+}
+
+/* Keyboard focus states */
+
+.collection-modal-secondary:focus-visible,
+.collection-modal-danger:focus-visible {
+  outline: 0.125rem solid var(--color-focus);
+  outline-offset: 0.125rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Mobile⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 767px) {
+  .collection-modal-overlay {
+    padding: 1rem;
+  }
+
+  .collection-modal {
+    width: 100%;
+    max-width: 28rem;
+    max-height: calc(100dvh - 2rem);
+
+    padding: 1.5rem;
+  }
+
+  .collection-modal h2 {
+    margin-right: 2.75rem;
+
+    font-size: 1.25rem;
+  }
+
+  .collection-modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .collection-modal textarea {
+    min-height: 6.5rem;
+  }
+
+  .collection-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .collection-modal-secondary,
+  .collection-modal-danger {
+    width: 100%;
+  }
+
+  .collection-modal-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .collection-modal-form-actions .collection-modal-primary,
+  .collection-modal-form-actions .collection-modal-secondary {
+    width: 100%;
+  }
+}

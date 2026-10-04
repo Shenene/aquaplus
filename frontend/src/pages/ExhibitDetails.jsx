@@ -1,15 +1,29 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Bookmark } from "lucide-react";
+
+import SaveCollectionModal from "../components/SaveCollectionModal.jsx";
+import Toast from "../components/Toast.jsx";
+
+import { useAuth } from "../context/authContext.js";
 
 import "./ExhibitDetails.css";
 
-function ExhibitDetails() {
+function ExhibitDetails({ onLoginRequest }) {
   const { slug } = useParams();
+  const navigate = useNavigate();
+
+  const { user, isAuthLoading } = useAuth();
 
   const [exhibit, setExhibit] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const [saveModalOpen, setSaveModalOpen] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState("");
+
+  const [saveToastVisible, setSaveToastVisible] = useState(false);
 
   useEffect(() => {
     async function loadExhibit() {
@@ -38,6 +52,84 @@ function ExhibitDetails() {
 
     loadExhibit();
   }, [slug]);
+
+  useEffect(() => {
+    if (!saveToastVisible) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      setSaveToastVisible(false);
+    }, 6000);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [saveToastVisible]);
+
+  function openSaveModal() {
+    setSaveError("");
+    setSaveToastVisible(false);
+    setSaveModalOpen(true);
+  }
+
+  function handleSaveRequest() {
+    if (isAuthLoading) {
+      return;
+    }
+
+    if (user) {
+      openSaveModal();
+      return;
+    }
+
+    onLoginRequest(openSaveModal);
+  }
+
+  function closeSaveModal() {
+    setSaveError("");
+    setSaveModalOpen(false);
+  }
+
+  async function handleSaveExhibit(note) {
+    setSaveError("");
+    setIsSaving(true);
+
+    try {
+      const response = await fetch("/api/collection", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          exhibitId: exhibit.id,
+          note,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Unable to save this exhibit.");
+      }
+
+      setSaveModalOpen(false);
+      setSaveToastVisible(true);
+
+      return true;
+    } catch (err) {
+      setSaveError(err.message);
+
+      return false;
+    } finally {
+      setIsSaving(false);
+    }
+  }
+
+  function viewMyCollection() {
+    setSaveToastVisible(false);
+    navigate("/my-collection");
+  }
 
   if (isLoading) {
     return (
@@ -127,7 +219,7 @@ function ExhibitDetails() {
             </div>
           </div>
 
-          <button type="button" className="exhibit-save-button">
+          <button type="button" className="exhibit-save-button" onClick={handleSaveRequest}>
             <Bookmark aria-hidden="true" />
             Save to My Collection
           </button>
@@ -144,6 +236,8 @@ function ExhibitDetails() {
           </div>
         </article>
       </section>
+      <SaveCollectionModal isOpen={saveModalOpen} exhibitName={exhibit.name} onClose={closeSaveModal} onSave={handleSaveExhibit} isSubmitting={isSaving} error={saveError} />
+      {saveToastVisible && <Toast message="Saved to My Collection" type="success" actionLabel="View My Collection" onAction={viewMyCollection} onClose={() => setSaveToastVisible(false)} />}
     </main>
   );
 }

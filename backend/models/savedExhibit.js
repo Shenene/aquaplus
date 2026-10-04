@@ -47,4 +47,9 @@ const SavedExhibit = sequelize.define(
   },
 );
 
+SavedExhibit.belongsTo(Exhibit, {
+  foreignKey: "exhibitId",
+  as: "exhibit",
+});
+
 export default SavedExhibit;
