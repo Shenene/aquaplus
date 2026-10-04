@@ -8,6 +8,7 @@ import Exhibit from "./models/exhibit.js";
 import SavedExhibit from "./models/savedExhibit.js";
 import exhibitRoutes from "./routes/exhibitRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import collectionRoutes from "./routes/collectionRoutes.js";
 
 dotenv.config();
 
@@ -25,6 +26,11 @@ app.use("/api/auth", authRoutes);
 
 // Public exhibit API routes
 app.use("/api/exhibits", exhibitRoutes);
+
+// Authenticated collection API routes
+app.use("/api/collection", collectionRoutes);
+
+// ------------------------------------------
 
 // Health check endpoint
 app.get("/api/health", (req, res) => {
