@@ -1,0 +1,380 @@
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢AQUA+ Authentication Modal⁡ */
+/* -------------------------------------- */
+
+.auth-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  display: grid;
+  place-items: center;
+
+  padding: 1.5rem;
+
+  background: rgba(15, 30, 58, 0.55);
+}
+
+.auth-modal {
+  position: relative;
+
+  width: min(32rem, 100%);
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+
+  padding: 2rem;
+
+  color: var(--color-deep-sea);
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1rem 2.5rem rgba(15, 30, 58, 0.2);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Close Button⁡ */
+/* -------------------------------------- */
+
+.auth-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-deep-sea);
+  background: transparent;
+  border: 0;
+
+  cursor: pointer;
+}
+
+.auth-modal-close svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Heading and Account Switch⁡ */
+/* -------------------------------------- */
+
+.auth-modal h2 {
+  margin: 0 3rem 0.75rem 0;
+
+  color: var(--color-deep-sea);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.auth-modal-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1.75rem;
+
+  color: var(--color-gray);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.auth-modal-switch button {
+  padding: 0;
+
+  color: var(--color-purple-neon);
+  background: transparent;
+  border: 0;
+
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.auth-modal-switch button:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Form⁡ */
+/* -------------------------------------- */
+
+.auth-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.auth-field label {
+  color: var(--color-deep-sea);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.auth-field input {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
+
+  color: var(--color-deep-sea);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.auth-field input::placeholder {
+  color: var(--color-gray-medium);
+}
+
+.auth-field input[aria-invalid="true"] {
+  border-color: var(--color-red);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Password Field⁡ */
+/* -------------------------------------- */
+
+.auth-password-field {
+  position: relative;
+}
+
+.auth-password-field input {
+  padding-right: 3.25rem;
+}
+
+.auth-password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
+
+  color: var(--color-gray);
+  background: transparent;
+  border: 0;
+
+  cursor: pointer;
+}
+
+.auth-password-toggle svg {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Remember Me⁡ */
+/* -------------------------------------- */
+
+.auth-remember {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: var(--color-deep-sea);
+  font-family: var(--font-body);
+  font-size: 1rem;
+
+  cursor: pointer;
+}
+
+.auth-remember input {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+
+  accent-color: var(--color-aqua);
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Validation⁡ */
+/* -------------------------------------- */
+
+.auth-error {
+  margin: 0;
+
+  color: var(--color-red);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Primary Button⁡ */
+/* -------------------------------------- */
+
+.auth-primary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 1.25rem;
+
+  color: var(--color-neutral-white);
+  background-color: var(--color-deep-sea);
+  border: 0;
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-button);
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.auth-primary-button:hover {
+  opacity: 0.9;
+}
+
+.auth-primary-button:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+
+.auth-button-spinner {
+  width: 1rem;
+  height: 1rem;
+
+  border: 0.125rem solid var(--color-gray-medium);
+  border-top-color: var(--color-neutral-white);
+  border-radius: 50%;
+
+  animation: auth-button-spin 0.8s linear infinite;
+}
+
+@keyframes auth-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Account Created Success⁡ */
+/* -------------------------------------- */
+
+.auth-success {
+  padding: 1rem 0 0.5rem;
+
+  text-align: center;
+}
+
+.auth-modal-success {
+  min-height: 15rem;
+}
+
+.auth-modal-title-success {
+  margin: 0 3rem 1rem;
+  text-align: center;
+}
+
+.auth-success-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+
+  color: var(--color-purple-neon);
+}
+
+.auth-success p {
+  max-width: 24rem;
+  margin: 0 auto;
+
+  color: var(--color-deep-sea);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Keyboard Focus⁡ */
+/* -------------------------------------- */
+
+.auth-modal-close:focus-visible,
+.auth-modal-switch button:focus-visible,
+.auth-password-toggle:focus-visible,
+.auth-remember input:focus-visible,
+.auth-primary-button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 0.25rem;
+}
+
+.auth-field input:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 0.125rem;
+}
+
+/* -------------------------------------- */
+/* ⁡⁢⁢⁣Authentication Modal - Mobile⁡ */
+/* -------------------------------------- */
+
+@media (max-width: 767px) {
+  .auth-modal-overlay {
+    padding: 1rem;
+  }
+
+  .auth-modal {
+    width: 100%;
+    max-width: 28rem;
+    max-height: calc(100dvh - 2rem);
+
+    padding: 1.5rem;
+  }
+
+  .auth-modal h2 {
+    margin-right: 2.75rem;
+
+    font-size: 1.25rem;
+  }
+
+  .auth-modal-switch {
+    margin-bottom: 1.5rem;
+
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    font-size: 1rem;
+  }
+
+  .auth-modal form {
+    gap: 1rem;
+  }
+
+  .auth-modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .auth-success {
+    padding-top: 1rem;
+  }
+}

@@ -1,5 +1,5 @@
 /* -------------------------------------- */
-/* ⁡⁣⁣⁢AQUA+ Design System⁡ */
+/* ⁡⁣⁣⁡⁣⁢⁢AQUA+ Design System⁡⁡ */
 /* -------------------------------------- */
 
 :root {
@@ -9,6 +9,7 @@
   --font-body: "Roboto", sans-serif;
 
   /* -------------------------------------- */
+
   /* AQUA+ brand colours */
 
   --color-aqua: #00e1e8;
@@ -34,8 +35,10 @@
   /* Card colours */
   --color-card-bg: rgba(15, 30, 58, 0.68);
   --color-card-border: rgba(255, 255, 255, 0.2);
+  --color-border-subtle: rgba(15, 30, 58, 0.12);
 
   /* -------------------------------------- */
+
   /* Glass-button colours */
 
   --color-glass-bg: rgba(255, 255, 255, 0.12);
@@ -43,12 +46,15 @@
   --color-glass-border: rgba(255, 255, 255, 0.45);
 
   /* -------------------------------------- */
-  /* Shared border radius */
 
+  /* Shared border radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem; /* 8px */
   --radius-lg: 1rem; /* 16px */
   --radius-pill: 9999px;
+
+  /* Shared shadows */
+  --shadow-elevated: 0 0.5rem 1.5rem rgba(15, 30, 58, 0.16);
 
   /* Shared layout values */
   --header-height: 4rem;

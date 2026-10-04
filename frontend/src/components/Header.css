@@ -36,6 +36,10 @@
   gap: 2rem;
 }
 
+.site-nav-label-spacer {
+  visibility: hidden;
+}
+
 .site-nav-link,
 .site-login-button {
   display: inline-flex;
@@ -48,7 +52,7 @@
   min-height: 3rem;
   padding: 0.125rem 0.25rem;
 
-  color: var(--color-deep-sea);
+  color: var(--color-gray);
   background: transparent;
   border: 0;
 
@@ -70,13 +74,103 @@
 
 .site-nav-link:hover,
 .site-login-button:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.25rem;
+  color: var(--color-purple-neon);
 }
 
 .site-nav-link[aria-current="page"] {
-  text-decoration: underline;
-  text-underline-offset: 0.25rem;
+  color: var(--color-deep-sea);
+  font-weight: 600;
+}
+
+.site-login-button[aria-expanded="true"] {
+  color: var(--color-deep-sea);
+}
+
+.site-auth-loading {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* -------------------------------------- */
+/* ⁡⁣⁢⁢Account Menu - Desktop⁡ */
+/* -------------------------------------- */
+
+.account-menu-wrapper {
+  position: relative;
+}
+
+.account-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 30;
+
+  width: 16rem;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elevated);
+}
+
+.account-menu[hidden] {
+  display: none;
+}
+
+.account-menu-user {
+  padding: 0.5rem 0.75rem 0.75rem;
+}
+
+.account-menu-user span,
+.account-menu-user strong {
+  display: block;
+}
+
+.account-menu-user span {
+  margin-bottom: 0.25rem;
+
+  color: var(--color-gray);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.account-menu-user strong {
+  color: var(--color-deep-sea);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.account-menu a,
+.account-menu button {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.75rem;
+
+  color: var(--color-deep-sea);
+  background: transparent;
+  border: 0;
+
+  font-family: var(--font-button);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.account-menu a:hover,
+.account-menu button:hover {
+  color: var(--color-purple-neon);
 }
 
 /* -------------------------------------- */
@@ -86,6 +180,8 @@
 .site-logo:focus-visible,
 .site-nav-link:focus-visible,
 .site-login-button:focus-visible,
+.account-menu a:focus-visible,
+.account-menu button:focus-visible,
 .mobile-menu-button:focus-visible,
 .mobile-nav a:focus-visible,
 .mobile-nav button:focus-visible {
@@ -165,6 +261,32 @@
     display: flex;
   }
 
+  .mobile-nav-user {
+    padding: 0.5rem 1rem 0.75rem;
+  }
+
+  .mobile-nav-user span,
+  .mobile-nav-user strong {
+    display: block;
+  }
+
+  .mobile-nav-user span {
+    margin-bottom: 0.25rem;
+
+    color: var(--color-neutral-white);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  .mobile-nav-user strong {
+    color: var(--color-neutral-white);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    overflow-wrap: anywhere;
+  }
+
   .mobile-nav a,
   .mobile-nav button {
     display: block;
@@ -180,14 +302,13 @@
 
     font-family: var(--font-button);
     font-size: 1rem;
+    font-weight: 600;
     text-align: left;
     text-decoration: none;
 
     cursor: pointer;
   }
 
-  .mobile-nav a:hover,
-  .mobile-nav button:hover,
   .mobile-nav a[aria-current="page"] {
     text-decoration: underline;
     text-underline-offset: 0.25rem;
