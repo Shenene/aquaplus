@@ -1,6 +1,9 @@
 import "dotenv/config";
 import express from "express";
 
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
 import { sessionMiddleware } from "./config/session.js";
 
 import exhibitRoutes from "./routes/exhibitRoutes.js";
@@ -8,6 +11,9 @@ import authRoutes from "./routes/authRoutes.js";
 import collectionRoutes from "./routes/collectionRoutes.js";
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /* Middleware to read JSON request bodies */
 app.use(express.json());
@@ -31,5 +37,20 @@ app.get("/api/health", (req, res) => {
     message: "AQUA+ API is running",
   });
 });
+
+/* Serves the React production build */
+if (process.env.NODE_ENV === "production") {
+  const frontendPath = path.join(__dirname, "public");
+
+  app.use(express.static(frontendPath));
+
+  app.get("/{*splat}", (req, res, next) => {
+    if (req.path.startsWith("/api/")) {
+      return next();
+    }
+
+    return res.sendFile(path.join(frontendPath, "index.html"));
+  });
+}
 
 export default app;
