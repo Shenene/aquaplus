@@ -1,0 +1,141 @@
+name: AQUA+ CD
+
+on:
+  workflow_run:
+    workflows:
+      - AQUA+ CI
+    types:
+      - completed
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: aquaplus-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy AQUA+ to AWS
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      EB_APPLICATION_NAME: ${{ vars.EB_APPLICATION_NAME }}
+      EB_ENVIRONMENT_NAME: ${{ vars.EB_ENVIRONMENT_NAME }}
+      IMAGE_NAME: ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_REPOSITORY }}
+      IMAGE_TAG: ${{ github.event.workflow_run.head_sha }}
+
+    steps:
+      - name: Checkout tested commit
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build AQUA+ Docker image
+        run: |
+          docker build \
+            --platform linux/amd64 \
+            -t "$IMAGE_NAME:$IMAGE_TAG" \
+            -t "$IMAGE_NAME:latest" \
+            .
+
+      - name: Push AQUA+ image to Docker Hub
+        run: |
+          docker push "$IMAGE_NAME:$IMAGE_TAG"
+          docker push "$IMAGE_NAME:latest"
+
+      - name: Create Elastic Beanstalk deployment bundle
+        run: |
+          mkdir -p deployment
+
+          cat > deployment/Dockerrun.aws.json <<EOF
+          {
+            "AWSEBDockerrunVersion": "1",
+            "Image": {
+              "Name": "$IMAGE_NAME:$IMAGE_TAG",
+              "Update": "true"
+            },
+            "Ports": [
+              {
+                "ContainerPort": "3000"
+              }
+            ]
+          }
+          EOF
+
+          cd deployment
+          zip "../aquaplus-$IMAGE_TAG.zip" Dockerrun.aws.json
+
+      - name: Configure AWS credentials with OIDC
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Get Elastic Beanstalk deployment bucket
+        run: |
+          S3_BUCKET=$(aws elasticbeanstalk create-storage-location \
+            --region "$AWS_REGION" \
+            --query S3Bucket \
+            --output text)
+
+          echo "S3_BUCKET=$S3_BUCKET" >> "$GITHUB_ENV"
+
+      - name: Upload deployment bundle to S3
+        run: |
+          aws s3 cp \
+            "aquaplus-$IMAGE_TAG.zip" \
+            "s3://$S3_BUCKET/aquaplus/$IMAGE_TAG.zip"
+
+      - name: Create Elastic Beanstalk application version
+        run: |
+          EXISTING_VERSION=$(aws elasticbeanstalk describe-application-versions \
+            --application-name "$EB_APPLICATION_NAME" \
+            --version-labels "$IMAGE_TAG" \
+            --region "$AWS_REGION" \
+            --query "ApplicationVersions[0].VersionLabel" \
+            --output text)
+
+          if [ "$EXISTING_VERSION" = "$IMAGE_TAG" ]; then
+            echo "Application version already exists: $IMAGE_TAG"
+          else
+            aws elasticbeanstalk create-application-version \
+              --application-name "$EB_APPLICATION_NAME" \
+              --version-label "$IMAGE_TAG" \
+              --source-bundle S3Bucket="$S3_BUCKET",S3Key="aquaplus/$IMAGE_TAG.zip" \
+              --region "$AWS_REGION"
+          fi
+
+      - name: Deploy application version
+        run: |
+          aws elasticbeanstalk update-environment \
+            --environment-name "$EB_ENVIRONMENT_NAME" \
+            --version-label "$IMAGE_TAG" \
+            --region "$AWS_REGION"
+
+      - name: Wait for deployment to complete
+        run: |
+          aws elasticbeanstalk wait environment-updated \
+            --application-name "$EB_APPLICATION_NAME" \
+            --environment-names "$EB_ENVIRONMENT_NAME" \
+            --region "$AWS_REGION"
+
+      - name: Show deployment result
+        run: |
+          aws elasticbeanstalk describe-environments \
+            --application-name "$EB_APPLICATION_NAME" \
+            --environment-names "$EB_ENVIRONMENT_NAME" \
+            --region "$AWS_REGION" \
+            --query "Environments[0].{Status:Status,Health:Health,Version:VersionLabel,CNAME:CNAME}" \
+            --output table
