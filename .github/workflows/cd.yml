@@ -2,12 +2,13 @@ name: AQUA+ CD
 
 on:
   workflow_run:
-    workflows:
-      - AQUA+ CI
+    workflows: ['AQUA\+ CI']
     types:
       - completed
     branches:
       - main
+
+  workflow_dispatch:
 
 permissions:
   id-token: write
@@ -20,7 +21,7 @@ concurrency:
 jobs:
   deploy:
     name: Deploy AQUA+ to AWS
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') }}
     runs-on: ubuntu-latest
 
     env:
@@ -28,13 +29,13 @@ jobs:
       EB_APPLICATION_NAME: ${{ vars.EB_APPLICATION_NAME }}
       EB_ENVIRONMENT_NAME: ${{ vars.EB_ENVIRONMENT_NAME }}
       IMAGE_NAME: ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_REPOSITORY }}
-      IMAGE_TAG: ${{ github.event.workflow_run.head_sha }}
+      IMAGE_TAG: ${{ github.event.workflow_run.head_sha || github.sha }}
 
     steps:
       - name: Checkout tested commit
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v4
