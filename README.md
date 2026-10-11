@@ -11,7 +11,7 @@ Developed as a Software Engineering Capstone Project for the University of Cante
 ## Live Application
 
 **Production application:**  
-[http://aquaplus-prod-env.eba-vjytcziq.ap-southeast-6.elasticbeanstalk.com/]
+[View the live AQUA+ application](http://aquaplus-prod-env.eba-vjytcziq.ap-southeast-6.elasticbeanstalk.com/)
 
 > The current capstone deployment is hosted on AWS Elastic Beanstalk.
 
