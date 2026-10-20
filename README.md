@@ -597,7 +597,7 @@ GitHub: [Shenene](https://github.com/Shenene)
 
 ## Project Status
 
-AQUA+ capstone MVP is deployed and operational.
+AQUA+ capstone MVP is complete. The application was successfully deployed to AWS during the capstone, with the production resources intentionally decommissioned following project completion.
 
 Completed core functionality includes:
 
