@@ -8,12 +8,13 @@ Developed as a Software Engineering Capstone Project for the University of Cante
 
 ---
 
-## Live Application
+## Deployment Status
 
-**Production application:**  
-[View the live AQUA+ application](http://aquaplus-prod-env.eba-vjytcziq.ap-southeast-6.elasticbeanstalk.com/)
+AQUA+ was successfully deployed to AWS Elastic Beanstalk with Amazon RDS as part of the Software Engineering Capstone Project.
 
-> The current capstone deployment is hosted on AWS Elastic Beanstalk.
+Following completion of the project, the AWS resources were intentionally decommissioned. The live application is therefore no longer available.
+
+The source code, project documentation and screenshots remain available in this repository, with the original production release preserved under GitHub Releases.
 
 ---
 
